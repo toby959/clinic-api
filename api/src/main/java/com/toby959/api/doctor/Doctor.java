@@ -44,10 +44,13 @@ public class Doctor {
 
     public void updateData(DataUpDateDoctor dataUpDateDoctor) {
         if (dataUpDateDoctor.name() != null) {
-            this.email = dataUpDateDoctor.name();
+            this.name = dataUpDateDoctor.name();
         }
         if (dataUpDateDoctor.document() != null) {
             this.document = dataUpDateDoctor.document();
+        }
+        if (dataUpDateDoctor.email() != null) {
+            this.email = dataUpDateDoctor.email();
         }
         if (dataUpDateDoctor.address() != null) {
             this.address = address.updateData(dataUpDateDoctor.address());

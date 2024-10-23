@@ -7,6 +7,7 @@ public record DataUpDateDoctor(
         @NotNull Long id,
         String name,
         String document,
+        String email,
         DataAddress address
 ) {
 }

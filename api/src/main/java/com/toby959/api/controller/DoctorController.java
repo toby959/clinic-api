@@ -9,7 +9,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/doctors")
@@ -32,12 +31,13 @@ public class DoctorController {
         return repository.findByActivoTrue(pageable).map(DataListDoctors::new);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Transactional
-    public void updateDoctor(DataUpDateDoctor dataUpDateDoctor) {
-        Doctor doctor = repository.getReferenceById(dataUpDateDoctor.id());
+    public void updateDoctor(@PathVariable Long id, @RequestBody DataUpDateDoctor dataUpDateDoctor) {
+        Doctor doctor = repository.getReferenceById(id);
         doctor.updateData(dataUpDateDoctor);
-     }
+        repository.save(doctor);
+    }
 
     @DeleteMapping("/{id}")
     @Transactional
