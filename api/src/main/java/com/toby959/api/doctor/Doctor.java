@@ -20,7 +20,11 @@ public class Doctor {
 
     private String email;
 
+    private String phone;
+
     private String document;
+
+    private Boolean activo;
 
     @Enumerated(EnumType.STRING)
     private Specialty specialty;
@@ -28,4 +32,29 @@ public class Doctor {
     @Embedded
     private Address address;
 
+    public Doctor(MedicalRecordData medicalRecordData) {
+        this.name = medicalRecordData.name();
+        this.email = medicalRecordData.email();
+        this.phone = medicalRecordData.phone();
+        this.document = medicalRecordData.document();
+        this.activo = true;
+        this.specialty = medicalRecordData.specialty();
+        this.address = new Address(medicalRecordData.address());
+    }
+
+    public void updateData(DataUpDateDoctor dataUpDateDoctor) {
+        if (dataUpDateDoctor.name() != null) {
+            this.email = dataUpDateDoctor.name();
+        }
+        if (dataUpDateDoctor.document() != null) {
+            this.document = dataUpDateDoctor.document();
+        }
+        if (dataUpDateDoctor.address() != null) {
+            this.address = address.updateData(dataUpDateDoctor.address());
+        }
+    }
+
+    public void disarmDoctor() {
+        this.activo = false;
+    }
 }

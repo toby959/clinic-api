@@ -13,7 +13,7 @@ public class Address {
 
     private String street;
 
-    private Integer number;
+    private String number;
 
     private String addition;
 
@@ -21,4 +21,21 @@ public class Address {
 
     private String city;
 
+
+    public Address(DataAddress address) {
+        this.street = address.street();
+        this.number = address.number();
+        this.district = address.district();
+        this.addition = address.addition();
+        this.city = address.city();
+    }
+
+    public Address updateData(DataAddress address) {
+        this.street = address.street();
+        this.number = address.number();
+        this.district = address.district();
+        this.addition = address.addition();
+        this.city = address.city();
+        return this;
+    }
 }
