@@ -17,7 +17,7 @@ ___
 | spring-boot-starter-data-jpa | https://start.spring.io/ |
 | flyway-core | https://start.spring.io/ |
 | flyway-mysql | https://start.spring.io/ |
-| >mysql-connector-j | https://start.spring.io/ |
+| mysql-connector-j | https://start.spring.io/ |
 | spring-boot-starter-validation | https://start.spring.io/ |
 ___
 # Herramientas utilizadas 🛠️
